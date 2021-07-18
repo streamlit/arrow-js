@@ -15,7 +15,7 @@
 // specific language governing permissions and limitations
 // under the License.
 import { toArrayBufferView } from './buffer';
-import { BigIntAvailable, BigInt64Array, BigUint64Array } from './compat';
+import { BigIntAvailable, BigInt64Array, BigInt64ArrayAvailable, BigUint64Array, BigUint64ArrayAvailable } from './compat';
 /** @ignore */
 export const isArrowBigNumSymbol = Symbol.for('isArrowBigNum');
 /** @ignore */
@@ -67,7 +67,7 @@ function bignumToNumber(bn) {
 export let bignumToString;
 /** @ignore */
 export let bignumToBigInt;
-if (!BigIntAvailable) {
+if (!BigIntAvailable || !BigInt64ArrayAvailable || !BigUint64ArrayAvailable) {
     bignumToString = decimalToString;
     bignumToBigInt = bignumToString;
 }

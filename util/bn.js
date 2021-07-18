@@ -66,7 +66,7 @@ function bignumToNumber(bn) {
     }
     return number;
 }
-if (!compat_1.BigIntAvailable) {
+if (!compat_1.BigIntAvailable || !compat_1.BigInt64ArrayAvailable || !compat_1.BigUint64ArrayAvailable) {
     exports.bignumToString = decimalToString;
     exports.bignumToBigInt = exports.bignumToString;
 }
